@@ -149,7 +149,7 @@ async def upload_file(file: UploadFile = File(...)):
         s3_client.put_object(
             Bucket=BUCKETEER_BUCKET_NAME,
             Key=s3_key,
-            Body(contents),
+            Body=contents,
             ContentType=file.content_type or "application/octet-stream",
         )
     except Exception as e:
